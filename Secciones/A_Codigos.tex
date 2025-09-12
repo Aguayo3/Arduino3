@@ -2,7 +2,7 @@
 
 \begin{listing}[H]
   \scriptsize
-  \begin{minted}{MATLAB}
+  \begin{minted}{cpp}
 #include <MD_MAX72xx.h>
 #include <SPI.h>
 
@@ -22,7 +22,7 @@ int estadoAnterior2 = HIGH;
 void setup() {
   mx.begin();
   
-  mx.setChar(3,'0');
+  mx.setChar(5,'0');
   pinMode(botonPin1, INPUT_PULLUP); 
   pinMode(botonPin2, INPUT_PULLUP);
   Serial.begin(9600);
