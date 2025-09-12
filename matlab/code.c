@@ -1,9 +1,4 @@
-\section{Códigos}
-
-\begin{listing}[H]
-  \scriptsize
-  \begin{minted}{MATLAB}
-    #include <MD_MAX72xx.h>
+#include <MD_MAX72xx.h>
 #include <SPI.h>
 
 #define hardware MD_MAX72XX::GENERIC_HW
@@ -64,7 +59,3 @@ void loop() {
     delay(200);
   }
 }
-  \end{minted}
-  \caption{Codigo Implementado}
-  \label{lst:cod-1}
-\end{listing}
