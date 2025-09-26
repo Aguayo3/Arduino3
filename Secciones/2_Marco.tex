@@ -21,3 +21,34 @@ y generar respuestas mediante actuadores, como motores o LEDs.
 
 \subsection{Matriz LED 8x8}
 
+Una matriz LED es un conjunto de diodos emisores de luz organizados en filas y columnas, que se controla
+mediante técnicas de multiplexación para reducir la cantidad de pines necesarios. En este laboratorio, se
+busca evitar el uso directo de las salidas digitales del microcontrolador, empleando registros de
+desplazamiento que permiten convertir datos seriales en paralelos. Esto optimiza el uso de recursos del
+Arduino y mejora la escalabilidad del sistema.
+
+\subsection{Registros de desplazamiento}
+
+Los registros de desplazamiento son circuitos digitales capaces de almacenar y desplazar información. Se
+utilizan ampliamente para expandir el número de salidas disponibles en un microcontrolador sin aumentar el
+número de pines empleados. Dentro de este laboratorio se utilizaron dos integrados:
+\begin{itemize}
+    \item 74HC595: Es un registro de desplazamiento de 8 bits con salida en paralelo y entrada en serie. Incluye
+    una compuerta de almacenamiento (latch) que permite mantener los datos estables en las salidas
+    mientras se cargan nuevos valores. Es uno de los integrados más usados para controlar LEDs, displays y otros periféricos con pocos pines del microcontrolador.
+    \item 74HC95: Es un registro de desplazamiento de 4 bits, el cual puede configurarse para desplazar datos en
+    serie o entregar salidas en paralelo.
+\end{itemize}
+
+\subsection{Joystick}
+
+El joystick analógico funciona mediante dos potenciómetros dispuestos ortogonalmente, que permiten
+obtener variaciones de voltaje en los ejes X e Y. Estas señales analógicas son leídas por el conversor A/D del
+microcontrolador, lo que posibilita interpretar movimientos direccionales. Además, muchos joysticks
+incluyen un botón integrado que puede utilizarse para iniciar o reiniciar una aplicación. En este laboratorio,
+el joystick cumple el rol de interfaz principal de control, permitiendo desplazar un "cazador" dentro de la matriz LED.
+
+\subsection{Pantalla LCD1602 con I2C}
+La pantalla LCD1602 es un display alfanumérico de 2 filas por 16 caracteres, ampliamente usado en sistemas embebidos por su bajo costo y 
+facilidad de integración. La incorporación del módulo I2C simplifica la conexión al microcontrolador, requiriendo solo dos líneas de
+comunicación (SDA y SCL) en lugar de múltiples pines de control.
