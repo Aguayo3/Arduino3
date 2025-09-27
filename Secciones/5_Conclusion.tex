@@ -7,4 +7,8 @@ El mayor logro no fue solo montar el circuito, sino controlar la matriz LED sin 
         \item El programa principal (\texttt{loop()}) queda libre para enfocarse solo en la lógica del juego, como mover al jugador y revisar si chocó.
         \end{itemize}
 
+El desarrollo del Laboratorio 3 permitió integrar de manera exitosa distintos periféricos en un mismo sistema digital, logrando la comunicación entre el joystick, la matriz LED 8×8 y la pantalla LCD1602 mediante el uso del microcontrolador Arduino Uno. Más allá de la correcta implementación física, el principal aporte de este trabajo fue comprender el uso de registros de desplazamiento para el control de la matriz LED, lo que permitió optimizar el uso de pines y liberar al microcontrolador de tareas de multiplexado intensivo.
 
+El empleo del temporizador (Timer1) y las interrupciones resultó clave para mantener un refresco estable de la matriz, evitando parpadeos y mejorando la experiencia visual. Esto posibilitó que el programa principal se enfocara en la lógica del juego, como el movimiento del jugador y la detección de colisiones, demostrando la importancia de separar responsabilidades en el diseño de sistemas embebidos.
+
+En términos de aprendizaje, este laboratorio reforzó conocimientos sobre comunicación I2C, manejo de señales analógicas y digitales, y programación estructurada en microcontroladores. Además, evidenció la relevancia de la planificación en el diseño de circuitos y la optimización de recursos de hardware. En conclusión, la experiencia no solo consolidó conceptos teóricos, sino que también entregó una visión práctica de cómo combinar distintos dispositivos para construir aplicaciones interactivas y escalables.
