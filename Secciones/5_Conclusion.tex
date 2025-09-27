@@ -1,3 +1,10 @@
 \section{Conclusión}
+El laboratorio 3 se logró de forma exitosa que todos los componentes, el joystick, el LCD y la matriz LED, trabajaran juntos para crear un juego funcional.
+
+El mayor logro no fue solo montar el circuito, sino controlar la matriz LED sin usar un driver como el laboratorio 2, si no mediante  registros de desplazamiento. En lugar de hacer que el Arduino se encargara de todo el refresco, usamos el Temporizador (Timer1) y las interrupciones.  Esta fue la clave de nuestro diseño:
+\begin{itemize}
+    \item La matriz se ve estable y sin parpadeos, porque el temporizador se encarga de encender y apagar las filas a una velocidad constante y muy alta.
+        \item El programa principal (\texttt{loop()}) queda libre para enfocarse solo en la lógica del juego, como mover al jugador y revisar si chocó.
+        \end{itemize}
 
 
