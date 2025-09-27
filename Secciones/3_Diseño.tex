@@ -11,10 +11,22 @@ Para este laboratorio se plantea el siguiente diagrama de conexiones hecho en el
 
 Asi para el uso del registro de desplazamiento 74HC595 de 8 bits, se conectan 3 pines digitales hacia el integrado, siendo uno para enviar los datos en serie 
 hacia el registro, otro para el reloj y el ultimo para el control del latch. La salida de este integrado se conecta a 8 resistencias de $\SI{220}{\ohm}$
-para limitar la corriente de estos pines, finalmente este se conecta a la matriz LED 8x8. Tambien se utiliza el pin de alimentacion de $\i$
+para limitar la corriente de estos pines, finalmente este se conecta a la matriz LED 8x8. Tambien se utiliza el pin de alimentación de $\SI{5}{\volt}$ hacia 
+la alimentación del integrado y al \texttt{MasterReset} para que no se reinicie. Por ultimo, el pin de \texttt{GND} se conecta al pin 8 del integrado y al \texttt{Output Enable}
+para que las salidas del integrado estén habilitadas. 
 
 Para los registros de desplazamiento de 4 bits, estos se tiene que conectar en cascada, para poder formar los 8 bits necesarios para controlar la matriz led.
-Asi se utilizan 3 pines digitales para esta conexion
+Asi se utilizan 3 pines digitales para la conexión de estos registros. Primero para que estos funcionen de manera correcta tienen que compartir el reloj interno
+por lo que ambos se conectan a los dos pines de reloj. Ahora bien, para tener los datos, se utiliza el pin de \texttt{Serial Input}, asi estos pasan a bits en paralelo.
+tomando el bit menos significativo del primer registro de desplazamiento, se conecta al \texttt{Serial Input} del segundo registro. Logrando asi tener un registro de 8 bits 
+en paralelo. Estos se conectan hacia la matriz LED 8x8, logrando asi las conexiones para esta, como se ve en \autoref{fig:esquema}. Por ultimo, para que los registros estén
+en modo de desplazamiento, es necesario que el pin \texttt{MODE} este a tierra, en caso contrario este estaria en modo de carga paralela.
+
+Para la conexion de la LCD1602, esta cuenta con un modulo I2C, por lo que solo se utilizaran 4 pines del Arduino Uno, siendo estos el $\SI{5}{\volt}$, \texttt{GND} y los pines \texttt{A4}
+y \texttt{A5}. Ya que estos son los pines de comunicación I2C. 
+
+Por ultimo, para el joystick en \autoref{fig:esquema}, no existe el bloque de joystick, por lo que se colocaron unos potenciómetros para ilustrar el movimiento en X y en Y, ademas de un botón 
+que ilutra el boton que tiene este. Aparte el joystick se debe conectar a $\SI{5}{\volt}$ y a \texttt{GND}.
 
 \subsection{Desarrollo del código}
 El código se estructuró para gestionar simultáneamente las entradas del joystick, la lógica del juego (movimiento y colisiones), y el refresco de las salidas (matriz LED y LCD). El principio fundamental de diseño fue descargar el proceso de multiplexado de la matriz del ciclo principal (\texttt{loop()}) a las interrupciones por tiempo, permitiendo que el \texttt{loop()} se dedicara exclusivamente a la lógica del juego.
